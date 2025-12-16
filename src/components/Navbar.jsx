@@ -1,8 +1,11 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useContext } from 'react';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,6 +22,9 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="nav-right">
+        <button type="button" className="secondary small" onClick={toggleDarkMode}>
+          {darkMode ? '☀️ Light' : '🌙 Dark'}
+        </button>
         {user ? (
           <>
             <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
