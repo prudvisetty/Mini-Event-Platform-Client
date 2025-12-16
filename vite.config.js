@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE_PATH || '/Mini-Event-Platform-Client',
+  base: process.env.VITE_API_BASE_URL || '/Mini-Event-Platform-Client',
   server: {
     port: 5173,
   },
